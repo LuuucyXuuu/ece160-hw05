@@ -15,8 +15,8 @@ Student::~Student(){
 float Student::getGpa(){
 	float sum = 0;
 	int i;
-	for(i=0,i<_grades.size(),i++){
-	sum = _grades[i] + sum;
+	for(i=0;i<_grades.size();i++){
+		sum = _grades[i] + sum;
 	}
 	return sum / _grades.size();
 }
@@ -27,8 +27,33 @@ void Student::addGrade(float grade){
 	
 }
 std::string Student::majorString(Major m){
-	
+	switch (m) {
+		case Major::EE: 
+			return "EE";
+			break;
+		case Major::ME:
+			return "ME";
+			break;
+		case Major::CE:
+			return "CE";
+			break;
+		case Major::CHE:
+			return "CHE";
+			break;
+		case Major::BSE:
+			return "BSE";
+			break;
+		case Major::ART:
+			return "ART";
+			break;
+		case Major::ARCH:
+			return "ARCH";
+			break;
+	}
+		
 }
 void Student::printInfo(){
-	  
+	  std::cout << _first_name << ", " << _last_name << std::endl; 
+	  std::cout << majorString(_major) << " " << _grad_year << std::endl;
+	  std::cout << "GPA: " << std::setprecision(3) << getGpa() << std::endl;
 }
